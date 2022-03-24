@@ -99,7 +99,7 @@ public class CasaInteligente {
         while (count < 3){
             menor = clone.menosGastadora();
             ret.add(menor.clone());
-            clone.removeLampada(clone.lampadaList.indexOf(menor));
+            clone.lampadaList.remove(menor);
             count++;
         }
 
@@ -112,5 +112,12 @@ public class CasaInteligente {
 
     public CasaInteligente clone(){
         return new CasaInteligente(this);
+    }
+
+    @Override
+    public String toString() {
+        return "CasaInteligente{" +
+                "lampadaList=" + getLampadaList().toString() +
+                '}';
     }
 }
