@@ -79,9 +79,12 @@ public class CasaInteligente {
 
     public Lampada menosGastadora(){
         Lampada menor = new Lampada();
+        menor.setConsumoTotal(Integer.MAX_VALUE);
         for (Lampada a : this.lampadaList){
             if (a.getConsumoTotal() < menor.getConsumoTotal()){
+                System.out.println("LAMPADA MENOS GASTADORA" + a.toString());
                 menor = a.clone();
+                System.out.println("CLONE DELA " + menor.toString());
             }
         }
         return menor;
@@ -95,12 +98,15 @@ public class CasaInteligente {
         }
         int count = 0;
         CasaInteligente clone = new CasaInteligente(this);
+        System.out.println("CLONE DO METODO: " + clone.toString());
         Lampada menor;
         while (count < 3){
+            System.out.println("WHILE" + count);
             menor = clone.menosGastadora();
             ret.add(menor.clone());
             clone.lampadaList.remove(menor);
             count++;
+            System.out.println("LAMPADA " + count + menor.toString());
         }
 
         return ret;
