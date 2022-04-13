@@ -64,8 +64,10 @@ public class CasaInteligenteTest {
         assertFalse(casaInte1.existsDevice("b1"));
         assertFalse(casaInte1.existsDevice("s1"));
         casaInte1.addDevice(smartBul1);
+        System.out.println(casaInte1.getDevice("b1"));
         assertTrue(casaInte1.existsDevice("b1"));
         casaInte1.addDevice(smartSpe1);
+        System.out.println(casaInte1.getDevice("s1"));
         assertTrue(casaInte1.existsDevice("s1"));
         assertTrue(casaInte1.existsDevice("b1"));
     }
@@ -75,6 +77,8 @@ public class CasaInteligenteTest {
         CasaInteligente casaInte1 = new CasaInteligente("Gualtar");
         SmartBulb smartBul1 = new SmartBulb("b1");
         casaInte1.addDevice(smartBul1);
+        System.out.println(casaInte1.getDevice("b1").toString());
+        System.out.println(smartBul1.toString());
         assertTrue(casaInte1.getDevice("b1").equals(smartBul1));
     }
 

@@ -41,12 +41,15 @@ public class SmartSpeaker extends SmartDevice {
 
     public SmartSpeaker(String s) {
         // initialise instance variables
-        super();
+        super(s);
         this.volume = 10;
-        this.channel = s;
+        this.channel = "";
     }
 
-
+    public SmartSpeaker(SmartSpeaker umSpeaker){
+        this.volume = umSpeaker.getVolume();
+        this.channel = umSpeaker.getChannel();
+    }
 
     public SmartSpeaker(String cod, String channel, int i) {
         // initialise instance variables
@@ -78,6 +81,10 @@ public class SmartSpeaker extends SmartDevice {
         if (!super.equals(o)) return false;
         SmartSpeaker that = (SmartSpeaker) o;
         return this.volume == that.getVolume() && this.getChannel().equals(that.getChannel());
+    }
+
+    public SmartSpeaker clone(){
+        return new SmartSpeaker(this);
     }
 
 }

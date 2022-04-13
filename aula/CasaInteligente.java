@@ -25,7 +25,7 @@ import java.util.HashMap;
  * @version (a version number or a date)
  */
 public class CasaInteligente {
-   
+
     private String morada;
     private Map<String, SmartDevice> devices; // identificador -> SmartDevice
     private Map<String, List<String>> locations; // Espaço -> Lista codigo dos devices
@@ -47,39 +47,39 @@ public class CasaInteligente {
         this.locations = new HashMap();
     }
 
-    
+
     public void setDeviceOn(String devCode) {
         this.devices.get(devCode).turnOn();
     }
-    
+
     public boolean existsDevice(String id) {
-        return this.devices.containsKey(id);
+        return devices.containsKey(id);
     }
-    
+
     public void addDevice(SmartDevice s) {
         this.devices.put(s.getID(),s.clone());
     }
-    
+
     public SmartDevice getDevice(String s) {
-        return this.devices.getOrDefault(s,null);
+        return this.devices.get(s);
     }
-    
+
     public void setOn(String s, boolean b) {
         for (SmartDevice sd : this.devices.values()){
             if (s.equals(sd.getID())) sd.setOn(true);
         }
     }
-    
+
     public void setAllOn(boolean b) {
         for (SmartDevice sd : this.devices.values()){
             sd.setOn(b);
         }
     }
-    
+
     public void addRoom(String s) {
         this.locations.put(s,new ArrayList<>());
     }
-    
+
     public boolean hasRoom(String s) {
         for (String e : this.locations.keySet()){
             if (s.equals(e)){
@@ -88,15 +88,15 @@ public class CasaInteligente {
         }
         return false;
     }
-    
+
     public void addToRoom (String s1, String s2) {
         List<String> l = this.locations.get(s1);
         l.add(s2);
     }
-    
+
     public boolean roomHasDevice (String s1, String s2) {
         List<String> l = this.locations.get(s1);
         return l.contains(s2);
     }
-    
+
 }
