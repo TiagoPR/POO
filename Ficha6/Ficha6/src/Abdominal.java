@@ -29,7 +29,7 @@ public class Abdominal extends Atividade{
     }
 
     @Override
-    public double valorCalorias() {
+    public double valorCalorias(Utilizador user) {
         return 0;
     }
 

@@ -39,7 +39,7 @@ public class Corrida extends Atividade{
         this.altimetria = altimetria;
     }
 
-    public double valorCalorias()
+    public double valorCalorias(Utilizador user)
     {
         return 0;
     }

@@ -62,7 +62,7 @@ public class Canoagem extends Atividade{
     }
 
     @Override
-    public double valorCalorias() {
+    public double valorCalorias(Utilizador user) {
         return 0;
     }
 

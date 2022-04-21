@@ -57,7 +57,7 @@ public abstract class Atividade{
         this.tempo = tempo;
     }
 
-    public abstract double valorCalorias();
+    public abstract double valorCalorias(Utilizador user);
 
     public abstract Atividade clone();
 }
