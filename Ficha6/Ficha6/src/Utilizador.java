@@ -127,6 +127,13 @@ public class Utilizador {
         this.realizados.put(ola.getId(),ola.clone());
     }
 
+    public double totalCalorias(){
+        double total = 0;
+        for(Atividade a : realizados.values()){
+            total += a.valorCalorias(this);
+        }
+    }
+
     public Utilizador clone(){
         return new Utilizador(this);
     }
