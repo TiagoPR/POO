@@ -132,6 +132,7 @@ public class Utilizador {
         for(Atividade a : realizados.values()){
             total += a.valorCalorias(this);
         }
+        return total;
     }
 
     public Utilizador clone(){
